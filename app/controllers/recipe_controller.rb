@@ -6,6 +6,7 @@ class RecipeController < ApplicationController
       redirect_to user_sesssion_path, flash: { alert: 'You must be signed.'}
     else
     @recipes = current_user.recipe.order(created_at: :desc)
+    end
   end
 
   def show
@@ -62,19 +63,16 @@ class RecipeController < ApplicationController
     text = 'public' if @recipe.public
     if @recipe.save
       flash[:success] = "#{@recipe.name} is now #{text}!"
+      redirect_to recipe_path(@recipe.id)
     else
       flash[:fail] = @recipe.public
     end
-    redirect_to recipe_path(@recipe.id)
 
   end
 
   def public_recipes
     @recipes = Recipe.where(public: true)
   end
-
-
-  def 
 
   private
 

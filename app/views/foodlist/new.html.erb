@@ -1,0 +1,9 @@
+<h1>Foodlist</h1>
+
+<%# Create a form to add a new food to the list. %>
+
+<%= form_tag foodlist_index_path, method: :post do %>
+  <%= text_field_tag :food %>
+  <%= submit_tag "Add Food" %>
+<% end %>
+

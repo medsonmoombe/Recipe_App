@@ -55,10 +55,28 @@ class RecipeController < ApplicationController
     end
   end
 
+  def toggle_recipe
+    @recipe = set_recipe
+    @recipe.public = !@recipe.public 
+    text = 'private'
+    text = 'public' if @recipe.public
+    if @recipe.save
+      flash[:success] = "#{@recipe.name} is now #{text}!"
+    else
+      flash[:fail] = @recipe.public
+    end
+    redirect_to recipe_path(@recipe.id)
+
+  end
+
 
   def 
 
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :cooking_time, :preparation_time, :description, :public)

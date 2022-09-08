@@ -1,7 +1,7 @@
 <%= form_with model: Inventory, url: user_inventories_path, method: :post do |f| %>
 
   <% if @inventory.errors.any? %>
-     <ul class= "errors-decr">
+     <ul class = "errors-decr">
         <% @inventory.errors.full_messages.each do |errors| %>
           <li><%= errors %></li>
         <% end %>

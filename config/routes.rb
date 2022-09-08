@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   #  resources :foods
-  root 'foodlist#index'
+  root 'foodlist#show'
 end

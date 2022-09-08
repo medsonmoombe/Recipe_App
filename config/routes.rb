@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/public_recipes', to: 'recipe#public_recipes', as: :public_recipes
 
   resources :recipe, only: [:index, :show, :destroy] do
-    resources :recipe_foods, only: [:create, :new, :edit, :update, :destroy]
+    resources :recipe_food, only: [:create, :new, :edit, :update, :destroy]
   end
-
+  gem 'rspec-rails'
 end

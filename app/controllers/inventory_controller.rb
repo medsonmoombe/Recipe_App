@@ -4,7 +4,8 @@ class InventoryController < ApplicationController
   end
 
   def show
-    @inventory = Inventory.includes(:user).find(params[:id])
+    @inventory = current_user.inventories.includes(:user).find(params[:id])
+    @foods = @inventory.inventory_foods.includes(:food)
   end
 
   def new
@@ -16,7 +17,7 @@ class InventoryController < ApplicationController
     @inventory.user = current_user
     if @inventory.save
       flash[:success] = 'New inventory has been created !!'
-      redirect_to inventories_path
+      redirect_to user_inventories_path
     else
       flash['alert'] = 'Inventory could not created !!'
       render :new
@@ -27,7 +28,7 @@ class InventoryController < ApplicationController
     @inventory = Inventory.find(params[:id])
     @inventory.destroy
     flash[:success] = 'Inventory has been deleted successfully'
-    redirect_to inventories_path
+    redirect_to user_inventories_path
   end
 
   private

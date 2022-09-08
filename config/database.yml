@@ -8,7 +8,6 @@ development:
   database: Recipe_App_development
   username: <%= ENV.fetch("DATABASE_USERNAME") {'postgres'} %>
   password: <%= ENV.fetch("DATABASE_PASSWORD") {'Martial@5009'} %>
-  # password: <%= ENV.fetch("DATABASE_PASSWORD") {'12345'} %>
 
 test:
   <<: *default

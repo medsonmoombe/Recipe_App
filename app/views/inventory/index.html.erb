@@ -1,1 +1,16 @@
-<h1>inventories</h1>
+<section class = 'd-flex flex-column mb-2 align-items-center'>
+  <% if @inventories.empty? %>
+    <h2>There are no Inventories <em>yet !!</em></h2>
+  <% else %>
+    <% @inventories.each do |inventory| %>
+      <div class='d-flex flex-row'>
+        <%= inventory.id  %>: <%= inventory.name %> (<%= inventory.user.id %>)
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if user_signed_in? %>
+      <%= link_to "Add new Inventory", new_user_inventory_path%>
+    <% end %>
+  </div>
+</section>

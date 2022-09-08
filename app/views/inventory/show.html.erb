@@ -1,0 +1,40 @@
+<section class = 'd-flex flex-column mb-2 align-items-center'>
+  <%= @inventory.name %>
+  <div class='food-btn'>
+    <%= button_to 'Add food' method: :post, url:, class:'add-food'%>
+  </div>
+  <hr>
+  <div class='table'>
+    <table class = 'w-5 mb-2 align-items-center' >
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= link_to 'Remove', method: :delete, url:, class:'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+      <%# delete latter form here%>
+      <tr>
+        <td>Apple</td>
+        <td>20 grams</td>
+        <td><button type='buttpn' class='btn btn-danger'>link ot remove</button></td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>20 grams</td>
+        <td><button type='buttpn' class='btn btn-danger'>link ot remove</button></td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>20 grams</td>
+        <td><button type='buttpn' class='btn btn-danger'>link ot remove</button></td>
+      </tr>
+      <%# to here %>
+    </table>
+  </div>
+</section>

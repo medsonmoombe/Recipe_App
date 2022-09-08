@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
-  resources :recipe, only: %i[index show new create destroy put] do
-    resources :recipe_foods, path: 'food', only: %i[destroy new create]
+  devise_for :user
+  root 'recipe#index'
+  resources :users, only: [:index, :show] do
+    resources :recipe, only: [:index, :new, :show, :create, :destroy]
   end
 
-  match 'recipes/:recipe_id' => 'recipe#toogle_public', as: :toogle_public, via: :patch
-  match 'public_recipes' => 'recipe#public_recipes', as: :public_recipes, via: :get
+  patch '/recipes/:id', to: 'recipe#toggle_public', as: :update_recipe
+  get '/public_recipes', to: 'recipe#public_recipes', as: :public_recipes
 
-  root 'recipe#public_recipes'
+  resources :recipe, only: [:index, :show, :destroy] do
+    resources :recipe_foods, only: [:create, :new, :edit, :update, :destroy]
+  end
+
 end

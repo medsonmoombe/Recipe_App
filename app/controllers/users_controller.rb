@@ -1,4 +1,4 @@
 class UsersController < ApplicationController
-    def create
-    end
+  def create
+  end
 end

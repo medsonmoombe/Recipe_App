@@ -18,9 +18,10 @@
       <p class="fs-6">
         <%= @recipe.description %>
   </div>
-    <div class="col col-md-6 ms-auto">
-      <% if @recipe.user == @current_user %>
+    <div class="col ms-auto d-flex justify-content-between">
+      <%#<% if @recipe.user == @current_user%> <%# un-comment this latter %>
+        <%= link_to 'Generate shopping list', recipe_path, class: "btn btn-primary" %>
         <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-outline-dark" %>
-      <% end %>
+      <%#<% end %> <%# un-comment this latter %>
     </div>
 </div>

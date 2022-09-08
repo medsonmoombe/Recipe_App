@@ -21,10 +21,10 @@ class RecipeFoodController < ApplicationController
     @recipe_food = RecipeFood.find(params[:id])
     if recipe_food.update(recipe_food_params)
       flash[:success] = 'Recipe foood successfully updated!'
-      redirect_to (@recipe_food.recipe)
+      redirect_to recipe_path(@recipe_food.recipe)
     else
       flash[:alert] = 'Recipe food failed to update!'
-      redirect_to :new
+      render :new
     end
   end
 

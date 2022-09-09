@@ -3,8 +3,8 @@
     <h2>There are no Inventories <em>yet !!</em></h2>
   <% else %>
     <% @inventories.each do |inventory| %>
-      <div class='d-flex flex-row'>
-        <%= inventory.id  %>: <%= inventory.name %> (<%= inventory.user.id %>)
+      <div class='d-flex flex-row link'>
+        <%= link_to inventory.name, user_inventory_path(id: inventory), class:'link'%>
       </div>
     <% end %>
   <% end %>

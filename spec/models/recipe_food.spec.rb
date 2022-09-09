@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  user = User.new(name: 'user1', email: 'testing@gmail.com', password: 1234567, confirm_password: 1234567)
+  user = User.new(name: 'user1', email: 'testing@gmail.com', password: 1_234_567, confirm_password: 1_234_567)
   subject { RecipeFood.new(quantity: 10, user_id: user, cooking_time: 20, preparation_time: 30) }
   before { subject.save }
 

@@ -17,15 +17,12 @@ Rails.application.routes.draw do
   patch '/recipes/:id', to: 'recipe#toggle_public', as: :update_recipe
   get '/public_recipes', to: 'recipe#public_recipes', as: :public_recipes
 
-<<<<<<< Updated upstream
   resources :recipe, only: [:index, :show, :destroy] do
     resources :recipe_foods, only: [:create, :new, :edit, :update, :destroy]
   end
 
-=======
   resources :recipe, only: [:index, :show, :new, :destroy] do
     resources :recipe_food, only: [:create, :new, :edit, :update, :destroy]
   end
   gem 'rspec-rails'
->>>>>>> Stashed changes
 end

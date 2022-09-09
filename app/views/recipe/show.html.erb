@@ -5,6 +5,11 @@
     <span class="badge bg-secondary">Private</span>
     <% end %>
 </h1>
+<% if @recipe.public %>
+  <%= button_to "Public", update_recipe_path(id: @recipe), method: :patch, class:"btn btn-success btn-sm" %>
+<% else %>
+  <%= button_to "Private", update_recipe_path(@recipe), method: :patch, class:"btn btn-secondary btn-sm" %>
+<% end %>
 <div class="card w-75 container">
   <div class="card-body row align-items-between">
     <div class="col col-md-6 ms-3">

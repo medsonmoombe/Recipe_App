@@ -29,7 +29,7 @@ class RecipeController < ApplicationController
     redirect_to user_recipe_path(@recipe)
   end
 
-  def toogle_public
+  def toggle_public
     @recipe = set_recipe
     @recipe.public = !@recipe.public
     text = 'private'

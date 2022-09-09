@@ -9,8 +9,7 @@ Rails.application.routes.draw do
 
   resources :foods, only: [:index, :show, :new, :create, :destroy]
 
-  patch '/recipes/:id', to: 'recipe#toggle_public', as: :update_recipe
-  get '/public_recipes', to: 'recipe#public_recipes', as: :public_recipes
+  patch '/recipe/:id', to: 'recipe#toggle_public', as: :update_recipe
 
   resources :recipe, only: [:index, :show, :destroy] do
     resources :recipe_food, only: [:create, :new, :edit, :update, :destroy]

@@ -29,7 +29,28 @@ class RecipeController < ApplicationController
     redirect_to user_recipe_path(@recipe)
   end
 
+  def toogle_public
+    @recipe = set_recipe
+    @recipe.public = !@recipe.public
+    text = 'private'
+    text = 'public' if @recipe.public
+    if @recipe.save
+      flash[:success] = "#{@recipe.name} is now #{text}!"
+    else
+      flash[:fail] = @recipe.public
+    end
+    redirect_to recipe_path(@recipe.id)
+  end
+
+  def public_recipes
+    @recipes = Recipe.where(public: true)
+  end
+
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description)

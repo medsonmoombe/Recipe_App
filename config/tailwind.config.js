@@ -16,6 +16,7 @@ module.exports = {
         red: '#ff0000',
         green: '#00ff00',
         yellow: '#ffff00',
+        skyBlue: '#1950E6',
         blue: '#0000ff',
         blueSecond: '#009BD6',
         magenta: '#ff00ff',

@@ -5,6 +5,13 @@
     <span class="badge bg-secondary">Private</span>
     <% end %>
 </h1>
+<% if can? :manage, @recipe %>
+<% if @recipe.public %>
+  <%= button_to "Public", update_recipe_path(id: @recipe), method: :patch, class:"btn btn-success btn-sm btn1" %>
+<% else %>
+  <%= button_to "Private", update_recipe_path(@recipe), method: :patch, class:"btn btn-secondary btn-sm btn1" %>
+<% end %>
+<% end %>
 <div class="card w-75 container">
   <div class="card-body row align-items-between">
     <div class="col col-md-6 ms-3">
@@ -46,6 +53,7 @@
         </div>
       </div>
       <%#<% if @recipe.user == @current_user%> <%# un-comment this latter %>
+        <%= link_to 'Generate shopping list', class: "btn btn-primary" %>
         <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-outline-dark" %>
       <%#<% end %> <%# un-comment this latter %>
     </div>

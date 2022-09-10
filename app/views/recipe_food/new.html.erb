@@ -1,26 +1,9 @@
-<div class="w-full">
-  <h1 class="font-bold text-4xl">New Ingredient</h1>
-   <div>
-     <%= form_with model: @recipe_foods, url: new_recipe_recipe_food_path, local: true, html: {"data-turbo": "false"} do |form| %>
-       <% if @recipe_foods.errors.any? %>
-         <div class="border px-7 py-3 mb-4 border-red-400 bg-red-200 font-medium">
-           <% @inventory_foods.errors.full_messages.each do |msg| %>
-            <p><%= msg %></p>
-              <% end %>
-         </div>
-       <% end %>
-       <div class="border">
-         <div>
-           <%= form.label :quantity, class: 'font-medium block mb-2' %>
-           <%= form.number_field :quantity, class: 'border rounded' %>
-         </div>
-         <%= form.submit "Submit", class: 'btn btn-outline-dark' %>
-         <div>
-           <p>
-            Add Food here <%= link_to 'here', recipe_index_path %>.
-           </p>
-         </div>
-       </div>
-     <% end %>
-   </div>
-</div>
+ <%= form_with model: @recipe_food, url: recipe_recipe_food_index_path , local: true, data: {turbo:false} do |f| %>
+    <%= f.label :Ingredient, class:"form-label" %>
+    <%= f.select :food_id, current_user.foods.collect {|food| [food.name, food.id]}, {include_blank: true}, class:"form-select", id:"foodSelect" %>
+    <br>
+    <%= f.label :quantity, class:"form-label" %>
+    <%= f.number_field :quantity, class:"form-control", required: true, placeholder: '1',  min: 1 %>
+    <hr>
+    <%= f.submit "Add food", class:"btn btn-primary" %>
+  <% end %>

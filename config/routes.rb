@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :show, :new, :create, :destroy]
 
   patch '/recipe/:id', to: 'recipe#toggle_public', as: :update_recipe
-  get '/shopping_list/:recipe_id', to: 'recipe_food#shoppinglist', as: :shopping_list
   
 
 

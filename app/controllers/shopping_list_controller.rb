@@ -1,7 +1,7 @@
 class ShoppingListController < ApplicationController
   def new
     @recipe_food = RecipeFood.new
-  end 
+  end
 
   def generate
     recipe_food = RecipeFood.where(recipe_id: shopping_params[:recipe_id])

@@ -1,9 +1,0 @@
-<%= form_with model: @recipe, url: "/shopping_list/#{@recipe.id}", method: :post, local: true, data: {turbo:false} do |form| %>
-  <div class="modal-body">
-    Choose an inventory to use:
-    <%= form.select :inventory_id, current_user.inventories.order(:name).pluck(:name, :id), {}, class: "form-select form-select-lg mt-3" %>
-  </div>
-  <div class="modal-footer">
-    <%= form.submit 'Generate', class: "btn btn-primary" %>
-  </div>
-<% end %>

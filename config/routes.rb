@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'inventory_food/:id/new', to: 'inventory_food#new'
 
   post 'shopping_list/:recipe_id', to: 'shopping_lists#generate'
-  get 'shopping_list', to: 'shopping_lists#show'
+  get 'shopping_list', to: 'shopping_list#show'
   
   resources :foods, only: [:index, :show, :new, :create, :destroy]
 

@@ -60,3 +60,13 @@ td {
 .link {
   text-decoration: none;
 }
+.custom {
+  width: 90px !important;
+  margin-left: 100px !important;
+}
+
+.btn1 {
+  position: relative;
+  right: -50%;
+  margin-bottom: 12px;
+}

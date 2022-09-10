@@ -1,6 +1,8 @@
 class InventoryFoodController < ApplicationController
   def show
-    @inventory_food = InventoryFood.includes(:user).find(params[:id])
+    @current_inventory = Inventory.find(params[:inventory_id])
+    @food_list = Food.where(user_id: current_user.id)
+    @inventory_food_list = InventoryFood.where(inventory_id: params[:inventory_id])
   end
 
   def new

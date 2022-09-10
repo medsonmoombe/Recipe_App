@@ -40,7 +40,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             
-            <%= form_with url: "/shopping_list/#{@recipe.id}", method: :post do |form| %>
+            <%= form_with url: "/inventory_food/#{:inventory_food_id}/shopping_list/#{:recipe_id}", method: :post do |form| %>
               <div class="modal-body">
                 Choose an inventory to use:
                 <%= form.select :inventory_id, current_user.inventories.order(:name).pluck(:name, :id), {}, class: "form-select form-select-lg mt-3" %>

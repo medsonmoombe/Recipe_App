@@ -13,7 +13,7 @@
 *= require_tree .
 *= require_self
 */
-
+/*
 form {
   width: 80%;
   margin: 0 auto;
@@ -129,4 +129,4 @@ td {
 .remove {
   margin: 10px 0 0 -100px;
 }
-
+ */

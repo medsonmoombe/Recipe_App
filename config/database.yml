@@ -1,6 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch("POSTGRES_USER") { "postgres" } %>
   password: <%= ENV.fetch("POSTGRES_PASSWORD") { "Martial@5009" } %>
@@ -10,8 +11,7 @@ development:
   database: Recipe_App_development
   username: <%= ENV.fetch("POSTGRES_USER") { "postgres" } %>
   password: <%= ENV.fetch("POSTGRES_PASSWORD") { "Martial@5009" } %>
-
-
+  
 test:
   <<: *default
   database: Recipe_App_test

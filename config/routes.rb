@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show] do
     resources :recipe, only: [:index, :new, :show, :create, :destroy]
+    resources :inventories, controller: 'inventory', only: [:index, :show, :new, :create, :destroy]
   end
-
-  resources :inventories, controller: 'inventory', only: [:index, :show, :new, :create, :destroy]
 
   patch '/recipes/:id', to: 'recipe#toggle_public', as: :update_recipe
   get '/public_recipes', to: 'recipe#public_recipes', as: :public_recipes

@@ -1,15 +1,62 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.food-btn {
+  width: 95%;
+  text-align: end;
+}
+
+.add-food {
+  background: #239716;
+}
+
+hr {
+  width: 80%;
+  height: 5rem;
+  color: #000;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+.table {
+  margin: 0 auto;
+}
+
+table {
+  width: 60%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+th {
+  background: #d1d1d1;
+}
+
+table,
+th,
+td {
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+.link {
+  text-decoration: none;
+}

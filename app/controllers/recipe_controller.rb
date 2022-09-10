@@ -1,5 +1,5 @@
 class RecipeController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   def index
     @recipes = current_user.recipes.includes(:user, :recipe_foods).order(created_at: :desc)

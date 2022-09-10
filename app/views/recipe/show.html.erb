@@ -17,10 +17,35 @@
       <h4 class="fw-bold my-1">Description</h4>
       <p class="fs-6">
         <%= @recipe.description %>
-  </div>
+</div>
+<div class="mt-5 d-flex justify-content-around">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recipeModal">
+      Generate shopping list
+    </button>
+
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="recipeModalLabel">Generating shopping list</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+          <%= form_with url: "/shopping_list/#{@recipe.id}", method: :post do |form| %>
+            <div class="modal-body">
+              Choose an inventory to use:
+              <%= form.select :inventory_id, current_user.inventories.order(:name).pluck(:name, :id), {}, class: "form-select form-select-lg mt-3" %>
+            </div>
+            <div class="modal-footer">
+              <%= form.submit 'Generate', class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <div class="mt-5 d-flex justify-content-around">
     <div class="col ms-auto d-flex justify-content-between">
       <%#<% if @recipe.user == @current_user%> <%# un-comment this latter %>
-        <%= link_to 'Generate shopping list', recipe_path, class: "btn btn-primary" %>
         <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-outline-dark" %>
       <%#<% end %> <%# un-comment this latter %>
     </div>

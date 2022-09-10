@@ -3,8 +3,9 @@
     <h2>There are no Inventories <em>yet !!</em></h2>
   <% else %>
     <% @inventories.each do |inventory| %>
-      <div class='d-flex flex-row link'>
+      <div class='d-flex flex-col link'>
         <%= link_to inventory.name, user_inventory_path(id: inventory), class:'link'%>
+        <%= button_to 'REMOVE', user_inventory_path(id: inventory), method: :delete, class:'link'%>
       </div>
     <% end %>
   <% end %>

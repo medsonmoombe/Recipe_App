@@ -1,27 +1,37 @@
 class InventoryFoodController < ApplicationController
+  def show
+    @inventory_food = InventoryFood.includes(:user).find(params[:id])
+  end
+
+  def new
+    @inventory = current_user.inventories.includes(:user).find(params[:id])
+    @inventory_food = InventoryFood.new
+    @params = params
+  end
+
   def create
-    @food = Food.includes(:user).find(params[:food_id])
-    @inventory_food = InventoryFood.create(inventory_params)
-    @inventory_food.user = current_user
-    if @inventoryFood.save
-      flash[:success] = 'New inventory food has been created !!'
-      redirect_to inventory_path(params[:id])
-    else
-      flash[:error] = 'Inventory could not created !!'
-      render :new
+    food_list = params[:inventory_food][:food_list]
+    food_list = food_list.drop(1)
+    food_list.each do |food|
+      next unless InventoryFood.where(food_id: food.to_i, inventory_id: params[:id]).blank?
+
+      new_inventory_food = InventoryFood.new(food_id: food.to_i, quantity: params[:inventory_food][:quantity],
+                                             inventory_id: params[:id])
+      new_inventory_food.save
     end
+    redirect_to user_inventory_path(params[:id])
   end
 
   def destroy
     @inventory_food = InventoryFood.find(params[:id])
     @inventory_food.destroy
-    flash[:success] = 'Inventory has been deleted successfully'
-    redirect_to inventories_path
+    flash[:success] = 'Inventory Food has been deleted successfully'
+    redirect_to user_inventory_path
   end
 
   private
 
-  def inventory_params
-    params.require(:inventory).permit(:name)
+  def inventory_foods_params
+    params.require(:inventory_foods).permit(:food_list, :quantity)
   end
 end

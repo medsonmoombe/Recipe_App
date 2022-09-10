@@ -1,7 +1,7 @@
 # <div class="w-full">
 #   <h1 class="font-bold text-4xl">New Ingredient</h1>
 #   <div>
-#     <%= form_with model: @recipe_foods, url: new_recipe_recipe_food, local: true, html: {"data-turbo": "false"} do |form| %>
+#     <%= form_with model: @recipe_foods, url: new_recipe_recipe_food_path, local: true, html: {"data-turbo": "false"} do |form| %>
 #       <% if @recipe_foods.errors.any? %>
 #         <div class="border px-7 py-3 mb-4 border-red-400 bg-red-200 font-medium">
 #           <% @inventory_foods.errors.full_messages.each do |msg| %>

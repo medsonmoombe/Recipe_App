@@ -45,7 +45,7 @@ hr {
 }
 
 table {
-  width: 60%;
+  width: 100%;
   margin: 2rem auto;
   text-align: center;
 }
@@ -70,3 +70,63 @@ td {
   display: flex;
   gap: 15px;
 }
+
+.inventory {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inventory-desc {
+  width: 50%;
+}
+
+.inventory-container {
+  display: flex;
+  flex-direction: row;
+  width: 65%;
+  padding: 2rem 4rem;
+  margin: 2rem;
+  border: 2px solid #000;
+}
+
+.btn-inv {
+  margin-bottom: 8rem;
+  color: #0069e1;
+  border: 2px solid #000;
+  margin: 0 0 50px 0;
+}
+
+.content {
+  flex-direction: column;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.link-btn {
+  width: auto;
+}
+
+.btn1 {
+  position: relative;
+  left: 85%;
+  margin: 0 0 15px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-btn {
+  margin: 0 0 20px 0;
+}
+
+.remove {
+  margin: 10px 0 0 -100px;
+}
+

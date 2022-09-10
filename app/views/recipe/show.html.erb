@@ -5,13 +5,13 @@
     <span class="badge bg-secondary">Private</span>
     <% end %>
 </h1>
-<% if can? :manage, @recipe %>
+<%#<% if can? :manage, @recipe %>
 <% if @recipe.public %>
   <%= button_to "Public", update_recipe_path(id: @recipe), method: :patch, class:"btn btn-success btn-sm btn1" %>
 <% else %>
   <%= button_to "Private", update_recipe_path(@recipe), method: :patch, class:"btn btn-secondary btn-sm btn1" %>
 <% end %>
-<% end %>
+<%#<% end %>
 <div class="card w-75 container">
   <div class="card-body row align-items-between">
     <div class="col col-md-6 ms-3">
@@ -25,13 +25,15 @@
       <p class="fs-6">
         <%= @recipe.description %>
 </div>
-<div class="mt-5 d-flex justify-content-around">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recipeModal">
+<div class="mt-5 d-flex justify-content-around content">
+  <div class='btn-container'>
+    <button type="button" class="btn btn-primary link-btn" data-bs-toggle="modal" data-bs-target="#recipeModal">
       Generate shopping list
     </button>
-
+    <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-outline-dark link-btn" %>
+  </div>
   <div class="mt-5 d-flex justify-content-around">
-    <div class="col ms-auto d-flex justify-content-between">
+    <div class="col ms-auto d-flex justify-content-between ">
       <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -53,8 +55,30 @@
         </div>
       </div>
       <%#<% if @recipe.user == @current_user%> <%# un-comment this latter %>
-        <%= link_to 'Generate shopping list', class: "btn btn-primary" %>
-        <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-outline-dark" %>
+        
       <%#<% end %> <%# un-comment this latter %>
+      <table>
+        <thead>
+          <tr>
+            <th>Food</th><br/>
+            <br/>
+            <th>Quantity</th>
+            <br/>
+            <th>Value</th>
+            <br/>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @shopping_list.each do |food_item| %>
+          <tr>
+            <td><%= food_item.name %></td>
+            <td><%= food_item.price/2 %> grams</td>
+            <td>$<%= food_item.price %></td>
+            <td><%= link_to 'Remove', url: "/shopping_list/id" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
 </div>

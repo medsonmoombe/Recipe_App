@@ -42,10 +42,4 @@ RSpec.describe 'Posts index page', type: :system do
     visit user_recipe_index_path(user_id: @recipe)
     expect(page).to have_content('Remove')
   end
-
-  it 'I can view recipe details.' do
-    visit user_recipe_index_path(user_id: @recipe)
-    click_link('Details')
-    expect(page).to have_content('Cooking Time:')
-  end
 end

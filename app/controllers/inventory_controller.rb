@@ -5,7 +5,7 @@ class InventoryController < ApplicationController
 
   def show
     @inventory = current_user.inventories.includes(:user).find(params[:id])
-    @foods = @inventory.inventory_foods.includes(:food)
+    @inventory_food = @inventory.inventory_foods.includes(:food)
   end
 
   def new

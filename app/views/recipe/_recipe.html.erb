@@ -1,21 +1,26 @@
 <% @recipes.includes([:user]).each do |recipe| %>
-  <%= link_to(recipe_path(recipe.id)) do %>
-  <div id="reciped" class="card d-flex flex-row" style="width: 100%;">
-    <div class="card-body">
-      <h5 class="card-title"><%= recipe.name %></h5>
-      <p class="card-text"> By: <%= recipe.user.name %></p>
-      <% if recipe.public %>
-      <span class="badge bg-secondary">Public</span>
-      <% else %>
-      <span class="badge bg-secondary">Private</span>
-      <% end %>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><p><%= recipe.description %></p></li>
-    </ul>
-  </div>
-  <% end %>
-  <div class="container-btn">
-    <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn btn-outline-danger remove" %>
+  <div id="container-card" class="container sm:w-3/4 md:w-9/12 h-auto flex flex-col pt-2 px-0  pb-4 mb-4 md:mb-6 sm:py-12 m-0 justify-center align-items-center border rounded md:rounded-md">
+    <h2 class="text-center text-lg sm:text-2xl md:text-3xl">Recipe No: <%= recipe.id%></h2>
+    <%= link_to(recipe_path(recipe.id)) do %>
+      <div class="w-full border-b p-2 border-grayLight sm:shadow-md shadow-md flex justify-between sm:flex-row space-x-2">
+        <div>
+          <h5 class="text-grayDark text-md text-decoration-none"><%= recipe.name %></h5>
+          <span class="text-grayDark"><span class="text text-lg font-semibold">By: </span><i class="text-decoration-none"><%= recipe.user.name %></i></span>
+        </div>
+        <div>
+          <% if recipe.public %>
+            <span class="badge bg-primary md:w-24 sm:h-8 p-2">Public</span>
+          <% else %>
+            <span class="badge bg-secondary md:w-24 sm:h-8 p-2">Private</span>
+          <% end %>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush w-full">
+        <li class="list-group-item"><%= recipe.description %>
+      </ul>
+    <% end %>
+      <div class="container mt-2 md:mt-4">
+        <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn btn-outline-danger remove" %>
+      </div>
   </div>
 <% end %>

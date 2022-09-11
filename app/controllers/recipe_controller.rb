@@ -29,7 +29,7 @@ class RecipeController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     flash[:notice] = 'Recipe deleted successfully'
-    redirect_to user_recipe_path(@recipe)
+    redirect_to user_recipe_path(current_user)
   end
 
   def toggle_public

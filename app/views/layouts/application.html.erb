@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>RecipeApp</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -14,11 +14,11 @@
 </head>
 
 <body class="bg-#F1F1F6">
-<%= render 'layouts/navbar' %>
-<main class="root container-fluid h-auto">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-</main>
+  <%= render 'layouts/navbar' %>
+  <main class="root container-fluid h-auto">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </main>
 </body>
 </html>

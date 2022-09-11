@@ -5,6 +5,7 @@
 
 - Ruby on Rails
 - Ruby
+- Tailwind CSS
 
 ## Prerequisites
 
@@ -41,18 +42,6 @@ In your browser, go to
 
 
 ## Authors
-
-👤   **Emmanuel Moombe**
-
-- GitHub: https://github.com/medsonmoombe
-- Twitter: https://twitter.com/@emmanue78388405
-- LinkedIn: https://www.linkedin.com/in/emmanuel-moombe-821918230/
-
- 👤 **Ibrahim Ahmat**
-- GitHub: [@ibr5500](https://github.com/ibr5500)
-- Twitter: [@ibr_ahmat](https://twitter.com/ibr_ahmat)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ibrahim-ahmat/)
-
 
  👤 **Stanley SIMEON**
 - GitHub: [@stanleySimeon](https://github.com/stanleySimeon)

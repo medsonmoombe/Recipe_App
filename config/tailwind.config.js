@@ -15,6 +15,9 @@ module.exports = {
       colors: {
         red: '#ff0000',
         green: '#00ff00',
+        greenDark: '#008000',
+        warning: '#ff0000',
+        alert: '#F0AF09',
         yellow: '#ffff00',
         skyBlue: '#1950E6',
         blue: '#0000ff',

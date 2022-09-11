@@ -1,5 +1,8 @@
 class RecipeController < ApplicationController
-  # load_and_authorize_resource
+  def load_and_authorize_resource
+    @recipe = Recipe.find(params[:id])
+    authorize! :manage, @recipe
+  end
 
   def index
     @recipes = current_user.recipes.includes(:user, :recipe_foods).order(created_at: :desc)
@@ -28,8 +31,13 @@ class RecipeController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    flash[:notice] = 'Recipe deleted successfully'
-    redirect_to user_recipe_path(current_user)
+    if @recipe.destroy
+      flash[:notice] = 'Recipe deleted successfully!'
+      redirect_to user_recipe_path(current_user)
+    elsif @recipe.errors.any?
+      flash[:alert] = 'There was an error in deleting recipe item'
+      render :show
+    end
   end
 
   def toggle_public

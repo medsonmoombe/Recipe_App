@@ -1,29 +1,44 @@
-<h1 class="text-center"><%=  @recipe.name %>
-<% if @recipe.public %>
-    <span class="badge bg-secondary">Public</span>
-    <% else %>
-    <span class="badge bg-secondary">Private</span>
+<div class="mb-4 md:mb-6">
+  <h1 class="text-center">
+  <%=  @recipe.name %>
+  <% if @recipe.public %>
+      <span class="badge bg-primary text-white w-auto p-2 sm:p-2.5 md:p-4 text-md md:text-xl font-medium">Public</span>
+      <% else %>
+      <span class="badge bg-greenDark text-white w-auto p-2 sm:p-2.5 md:p-4 text-md md:text-xl font-medium">Private</span>
+      <% end %>
+  </h1>
+</div>
+<div class="container w-full p-0 border rounded">
+  <div class="w-full md:mt-4 p-2 align-items-center">
+    <% if can? :update, @recipe %>
+      <%= button_to 'update', update_recipe_path(id: @recipe), method: :patch, class: "btn btn-primary btn-sm" %>
     <% end %>
-</h1>
-<%#<% if can? :manage, @recipe %>
-<% if @recipe.public %>
-  <%= button_to "Public", update_recipe_path(id: @recipe), method: :patch, class:"btn btn-success btn-sm btn1" %>
-<% else %>
-  <%= button_to "Private", update_recipe_path(@recipe), method: :patch, class:"btn btn-secondary btn-sm btn1" %>
-<% end %>
-<%#<% end %>
-<div class="card w-75 container">
-  <div class="card-body row align-items-between">
-    <div class="col col-md-6 ms-3">
-      <h4 class="fw-bold my-1">Preparation Time: <%= @recipe.preparation_time/60 %> hours <%= @recipe.preparation_time%60 %> minutes</h4>
-      <h4 class="fw-bold my-4">Cooking Time: <%= @recipe.cooking_time/60 %> hours <%= @recipe.cooking_time%60 %> minutes</h4>
-    </div>
+  </div>
+  <div class="col col-md-6 px-2 border-b border-grayLight">
+    <h4 class="fw-normal my-1 text-sm sm:text:md md:text-xl text-grayDark">Preparation Time:
+      <% if @recipe.preparation_time/60 && @recipe.preparation_time%60 > 1 %>
+        <%= @recipe.preparation_time/60 %>hrs :
+        <%= @recipe.preparation_time%60 %>mins
+      <% else %>
+        <%= @recipe.preparation_time/60 %>hr :
+        <%= @recipe.preparation_time%60 %>min
+      <% end %>
+    </h4>
+    <h4 class="fw-normal my-1 text-sm sm:text:md md:text-xl text-grayDark">Cooking Time:
+      <% if @recipe.cooking_time/60 && @recipe.cooking_time%60 > 1 %>
+        <%= @recipe.cooking_time/60 %>hrs :
+        <%= @recipe.cooking_time%60 %>mins
+      <% else %>
+        <%= @recipe.cooking_time/60 %>hr :
+        <%= @recipe.cooking_time%60 %>min
+      <% end %>
+    </h4>
   </div>
   <div class="row card-body">
     <div class="card-body col col-md-12">
       <h4 class="fw-bold my-1">Description</h4>
       <p class="fs-6">
-        <%= @recipe.description %>
+      <%= @recipe.description %>
 </div>
 <div class="mt-5 d-flex justify-content-around content">
   <div class='btn-container'>
@@ -41,7 +56,7 @@
               <h5 class="modal-title" id="recipeModalLabel">Generating shopping list</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            
+
             <%= form_with url: "/inventory_food/#{:inventory_food_id}/shopping_list/#{:recipe_id}", method: :post do |form| %>
               <div class="modal-body">
                 Choose an inventory to use:
@@ -54,9 +69,6 @@
           </div>
         </div>
       </div>
-      <%#<% if @recipe.user == @current_user%> <%# un-comment this latter %>
-        
-      <%#<% end %> <%# un-comment this latter %>
       <table>
         <thead>
           <tr>

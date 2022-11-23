@@ -1,30 +1,27 @@
-<div><h1>ShoppingList</h1>
-<div>
+<div><h1 class="text-center text-3xl font-semibold text-lime-600">ShoppingList</h1>
+<div class="flex flex-col justify-center items-center">
 <p> Amount of food items to buy: <%= @shopping_list.count %> </p>
 <p>Total value of food needed: <%= @shopping_list.sum(:price) %> </p>
 </div>
 
-<table>
-<thead>
-<tr>
-<th>Food</th><br/>
-<br/>
-<th>Quantity</th>
-<br/>
-<th>Value</th>
-<br/>
-<th>Actions</th>
-</tr>
+<table class="table table-striped table-hover table-bordered">
+<thead class="bg-lime-600 text-white">
+  <tr>
+    <th scope="col">Food</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Actions</th>
+  </tr>
 </thead>
 <tbody>
-<% @shopping_list.each do |food_item| %>
-<tr>
-<td><%= food_item.name %></td>
-<td><%= food_item.price/2 %> grams</td>
-<td>$<%= food_item.price %></td>
-<td><%= link_to 'Remove', url: "/shopping_list/id" %></td>
-</tr>
-<% end %>
+<% @shopping_list.each do |food| %>
+  <tr>
+    <th scope="row" class="text-black"><%= food.name %></th>
+    <td class="text-black"><%= food.price/2 %> grams</td>
+    <td class="text-black">$<%= food.price %></td>
+    <td  class="text-red-700 text-decoration-none><%= link_to 'Remove', url: "/shopping_list/id"%></td>
+  </tr>
+  <% end %>
 </tbody>
 </table>
 </div>

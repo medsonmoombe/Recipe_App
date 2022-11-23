@@ -1,21 +1,21 @@
 <% @recipes.includes([:user]).each do |recipe| %>
-  <%= link_to(recipe_path(recipe.id)) do %>
-  <div id="reciped" class="card d-flex flex-row" style="width: 100%;">
-    <div class="card-body">
-      <h5 class="card-title"><%= recipe.name %></h5>
-      <p class="card-text"> By: <%= recipe.user.name %></p>
+  <%= link_to(recipe_path(recipe.id), class:"text-decoration-none") do %>
+  <div id="reciped" class="flex justify-around bg-gray-200 w-full">
+    <div class="w-full pl-4 h-auto">
+      <h5 class="pt-4 text-gray-900 font-semibold"><%= recipe.name %></h5>
+      <p class="text-gray-500"> By: <%= recipe.user.name %></p>
       <% if recipe.public %>
       <span class="badge bg-secondary">Public</span>
       <% else %>
       <span class="badge bg-secondary">Private</span>
       <% end %>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><p><%= recipe.description %></p></li>
+    <ul class="flex justify-end items-center flex-wrap w-full">
+      <li class="text-decoration-none text-slate-700 text-sm m-auto"><p class="w-fit"><%= recipe.description %></p></li>
     </ul>
   </div>
   <% end %>
-  <div class="container-btn">
-    <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn btn-outline-danger remove" %>
+  <div class="flex justify-start items-center ml-4 pt-4 pb-2">
+    <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn btn-outline-danger" %>
   </div>
 <% end %>

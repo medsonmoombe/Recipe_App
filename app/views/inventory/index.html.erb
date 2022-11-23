@@ -1,13 +1,13 @@
-<section class = 'd-flex flex-column mb-2 align-items-center container'>
+<section class = 'd-flex flex-column mb-2 align-items-center m-auto w-full'>
   <% if @inventories.empty? %>
     <h2>There are no Inventories <em>yet !!</em></h2>
   <% else %>
     <% @inventories.each do |inventory| %>
-      <div class='d-flex flex-col link'>
-        <div class='inventory-container'>
+      <div class='d-flex flex-col w-full m-auto'>
+        <div class='flex justify-around bg-gray-200 w-full border-0 m-auto p-8'>
           <div class='inventory'>
-              <%= link_to inventory.name, user_inventory_path(id: inventory), class:'link'%>
-              <%= button_to 'REMOVE', user_inventory_path(id: inventory), method: :delete, class:'link'%>
+              <%= link_to inventory.name, user_inventory_path(id: inventory), class:"text-gray-900 font-semibold text-decoration-none"%>
+              <%= button_to 'REMOVE', user_inventory_path(id: inventory), method: :delete, class:"btn btn-outline-danger mt-4"%>
           </div>
           <div class='inventory-desc'>
             <p>
@@ -20,7 +20,7 @@
   <% end %>
 
   <% if user_signed_in? %>
-      <%= link_to "Add new Inventory", new_user_inventory_path, class: 'btn btn-priamary btn-inv' %>
+      <%= link_to "Add new Inventory", new_user_inventory_path, class: 'bg-lime-600 rounded px-3 py-2 text-decoration-none text-sm text-white mt-4' %>
   <% end %>
   </div>
 </section>

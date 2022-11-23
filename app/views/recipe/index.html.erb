@@ -1,9 +1,9 @@
-<div class="d-flex flex-column mb-2 align-items-center">
+<div class="d-flex flex-column mb-2 align-items-center pb-4">
   <p style="color: green"><%= notice %></p>
-  <div class="container">
-  <h1 class="text-center">Recipes</h1>
+  <div class="w-full">
+  <h1 class="text-center text-3xl font-semibold text-lime-600">Recipes</h1>
 
-  <div id="recipes" class="d-flex flex-column mb-2">
+  <div id="recipes" class="d-flex flex-column mb-2 bg-gray-200 rounded">
   <% if @recipes.empty? %>
       <h2>You don't have any recipes yet.</h2>
     <% else %>
@@ -12,7 +12,7 @@
   </div>
 
   <% if user_signed_in? %>
-      <%= link_to "New Recipe", new_user_recipe_path(user_id: current_user)%>
+      <%= link_to "New Recipe", new_user_recipe_path(user_id: current_user), class: "bg-lime-600 rounded px-3 py-2 text-decoration-none text-sm text-white"%>
     <% end %>
   </div>
 </div>

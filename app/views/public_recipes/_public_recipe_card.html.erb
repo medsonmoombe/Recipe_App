@@ -1,18 +1,18 @@
 <div class="wrapper">
-<div class=" set-width my-3 flex flex-col justify-around bg-gray-200 w-full">
+<div class=" set-width my-3 flex flex-col justify-around bg-secondary rounded">
   <div class="card-body space-between" style="display: flex; justify-content: space-between;">
     <div>
       <h3>
-        <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "pt-4 text-gray-900 font-semibold text-decoration-none" %>
+        <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "fs-4 text-light text-decoration-none" %>
       </h3>
-      <h5>By: <%= recipe.user.name %>
+      <h5 class="text-black">By: <%= recipe.user.name %>
       </h5>
     </div>
     <div>
       <% if recipe.public %>
-      <span class="badge text-bg-warning p-2 px-4 bg-gray-500">Public</span>
+      <span class="badge bg-success">Public</span>
       <% else %>
-      <span class="badge bg-gray-500 text-bg-secondary p-2 px-4">Private</span>
+      <span class="badge  bg-warning p-2 px-4">Private</span>
       <% end %>
       <h5 class="mt-3" style="margin-right: 20px">Total foods: <%= recipe.recipe_foods.length %> </h5>
       <% sum = 0 %>
@@ -23,14 +23,14 @@
     </div>
   </div>
   <div class="card-body">
-    <span class="text-2xl text-lime-600">Description</span>
+    <span class="fs-4 text-warning">Description</span>
     <p class="card-text">
       <%= recipe.description %>
     </p>
     <div class="d-flex justify-content-end flex-col">
-      <p class="opacity-50"><%= time_ago_in_words(recipe[:created_at]) %></p>
+      <p class=""><%= time_ago_in_words(recipe[:created_at]) %></p>
       <span>
-      <%= link_to "view recipe", user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "bg-lime-600 rounded px-3 py-2 text-decoration-none text-sm text-white" %>
+      <%= link_to "view recipe", user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "text-white bg-success px-2 py-2 mt-2 rounded text-decoration-none" %>
       </span>
     </div>
   </div>

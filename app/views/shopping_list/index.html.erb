@@ -1,11 +1,11 @@
-<div><h1 class="text-center text-3xl font-semibold text-lime-600">ShoppingList</h1>
-<div class="flex flex-col justify-center items-center">
+<div><h1 class="text-center text-warning fs-3">ShoppingList</h1>
+<div class="flex flex-col justify-center items-center  mb-2">
 <p> Amount of food items to buy: <%= @shopping_list.count %> </p>
 <p>Total value of food needed: <%= @shopping_list.sum(:price) %> </p>
 </div>
 
 <table class="table table-striped table-hover table-bordered">
-<thead class="bg-lime-600 text-white">
+<thead class="bg-success text-white">
   <tr>
     <th scope="col">Food</th>
     <th scope="col">Quantity</th>

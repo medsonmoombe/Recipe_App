@@ -1,7 +1,7 @@
 
 <div class="wrapper">
 
-<h1 class="text-center text-3xl font-semibold text-lime-600">Public Recipe List</h1>
+<h1 class="text-center text-warning fs-3">Public Recipe List</h1>
 <% if @public_recipes.length != 0 %>
 <% @public_recipes.each do |recipe| %>
   <%= render partial: 'public_recipe_card', locals: { recipe: recipe, user_id: recipe.id } %>

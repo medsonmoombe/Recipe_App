@@ -1,7 +1,7 @@
-<nav class=" bg-lime-800 px-2 sm:px-4 py-2.5 sticky w-full h-16 z-20 top-0 left-0 sm:h-20">
+<nav class=" p-3 mb-2 bg-success text-dark w-100">
   <div class="container flex flex-wrap justify-between align-items-center mx-auto items-center">
-     <%= link_to 'Recipe App', root_path, class: "text-xl text-decoration-none font-semibold text-white" %>
-      <ul class="flex gap-4 justify-center items-center pt-2">
+     <%= link_to 'Recipe App', root_path, class: "text-xl text-decoration-none text-warning fs-3" %>
+      <ul class="d-flex gap-4 justify-content-center align-items-center pt-2">
         <% if user_signed_in? %>
             <li class="nav-item">
                 <%= link_to 'Foods', foods_path, class: "text-decoration-none text-white text-sm sm:text-xs hover:text-black" %>
@@ -15,11 +15,11 @@
             <li class="nav-item">
                 <%= link_to 'shoppinglist', shopping_list_index_path, class: "text-decoration-none text-white text-sm sm:text-xs" %>
             </li>
-            <%= button_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo: false }, class:"bg-red-700 px-2 py-1 text-sm text-white rounded" %>
+            <%= button_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo: false }, class:"btn btn-danger" %>
           <% else %>
-          <div class="container w-auto flex gap-4 bg-blue">
-            <%= link_to "Sign in", new_user_session_path, class: "text-decoration-none flex justify-center align-items-center block text-grayLight rounded  md:hover:text-gray-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:text-white dark:border-gray-700 w-auto py-2 px-2 bg-blue" %>
-            <%= link_to "Sign up", new_user_registration_path, class: "text-decoration-none flex justify-center align-items-center block text-grayLight rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-700 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 w-auto py-2 px-2 bg-transparent border md:border-1" %>
+          <div class="d-flex gap-4">
+            <%= link_to "Sign in", new_user_session_path, class: "text-decoration-none text-white" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "text-decoration-none text-white" %>
           </div>
         <% end %>
        </ul>

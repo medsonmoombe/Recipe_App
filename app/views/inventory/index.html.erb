@@ -1,16 +1,16 @@
-<section class = 'd-flex flex-column mb-2 align-items-center m-auto w-full'>
+<section class = 'd-flex flex-column mb-2 align-items-center m-auto w-full bg-secondary p-4 rounded'>
   <% if @inventories.empty? %>
     <h2>There are no Inventories <em>yet !!</em></h2>
   <% else %>
     <% @inventories.each do |inventory| %>
-      <div class='d-flex flex-col w-full m-auto'>
-        <div class='flex justify-around bg-gray-200 w-full border-0 m-auto p-8'>
+      <div class='d-flex flex-col w-full m-auto gap-4'>
+        <div class='flex justify-center bg-secondary w-full border-0 m-auto p-8 gap-3'>
           <div class='inventory'>
-              <%= link_to inventory.name, user_inventory_path(id: inventory), class:"text-gray-900 font-semibold text-decoration-none"%>
-              <%= button_to 'REMOVE', user_inventory_path(id: inventory), method: :delete, class:"btn btn-outline-danger mt-4"%>
+              <%= link_to inventory.name, user_inventory_path(id: inventory), class:"text-light fs-4 text-decoration-none"%>
+              <%= button_to 'Remove', user_inventory_path(id: inventory), method: :delete, class:"btn btn-danger mt-8 text-light"%>
           </div>
-          <div class='inventory-desc'>
-            <p>
+          <div class='d-flex justify'>
+            <p class="mt-2">
               Description for the inventory. So much text in this small place. Lorem ipsum dolor sit
             </p>
           </div>
@@ -20,7 +20,7 @@
   <% end %>
 
   <% if user_signed_in? %>
-      <%= link_to "Add new Inventory", new_user_inventory_path, class: 'bg-lime-600 rounded px-3 py-2 text-decoration-none text-sm text-white mt-4' %>
+      <%= link_to "Add new Inventory", new_user_inventory_path, class: 'text-white bg-success px-2 py-2 rounded text-decoration-none' %>
   <% end %>
   </div>
 </section>

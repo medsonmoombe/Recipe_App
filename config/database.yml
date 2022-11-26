@@ -5,9 +5,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
-development:
-  <<: *default
-  database: Recipe_App_development
+# development:
+#   <<: *default
+#   database: Recipe_App_development
   # username: postgres # <%= ENV.fetch("DATABASE_USERNAME") {'postgres'} %>
   # password: 12345 # <%= ENV.fetch("DATABASE_PASSWORD") {'12345'} %>
 
@@ -19,7 +19,7 @@ test:
 
 production:
   <<: *default
-   url: <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
   database: Recipe_App_production
   username: Recipe_App
   password: <%= ENV["RECIPE_APP_DATABASE_PASSWORD"] %>

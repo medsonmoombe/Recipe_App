@@ -1,0 +1,25 @@
+.humb {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 768px) {
+    .shopplist {
+        flex-direction: column-reverse;
+    }
+
+    .btn-container {
+        margin: auto;
+    }
+
+    .link-btn {
+        font-size: 12px;
+    }
+
+    .shop-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}

@@ -1,7 +1,7 @@
 databases:
   - name: Recipe_app
     databaseName: postgresql
-    user: Recipe_App
+    user: postgresql
 
 services:
   - type: web

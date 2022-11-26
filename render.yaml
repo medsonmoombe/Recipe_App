@@ -1,7 +1,7 @@
 databases:
   - name: Recipe_app
-    databaseName: Recipe_App_production
-    user: postgres
+    databaseName: postgresql
+    user: Recipe_App
 
 services:
   - type: web

@@ -1,7 +1,7 @@
 <nav class="bg-dark px-2 sm:px-4 py-2 sm:py-0 sticky w-full flex justify-center z-20 top-0 left-0">
-  <div class="container flex flex-wrap sm:flex-nowrap justify-between p-0 align-items-center mx-auto">
-    <li class="flex align-items-center">
-      <a href="#" class="flex items-center p-0 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+  <div class="container flex flex-wrap sm:flex-nowrap justify-between p-1 align-items-center mx-auto">
+    <span class="flex align-items-center">
+      <%= link_to root_path, class: "flex align-items-center" do %>
         <svg aria-hidden="true" class="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
           fill="white" viewBox="0 0 196.979 196.979" xmlns="http://www.w3.org/2000/svg">
           <path d="M43.48,0C28.1,0.003,15.588,12.517,15.588,27.896v141.188c0,15.38,12.512,27.894,27.893,27.896h131.66
@@ -18,9 +18,9 @@
 		        c0-0.007,0.001-0.015,0.001-0.021c0.207-3.293-2.182-6.18-5.455-6.593c-4.862-0.613-8.528-4.776-8.528-9.685
 		        C72.014,61.646,76.396,57.265,81.782,57.265z"/>
         </svg>
-          <%= link_to 'Recipe App', root_path, class: "hidden md:flex whitespace-nowrap text-xl px-2 text-decoration-none font-semibold text-white" %>
-      </a>
-    </li>
+        <span class="hidden md:flex whitespace-nowrap text-xl px-2 text-decoration-none font-normal text-white">Recipe App</span>
+      <% end %>
+    </span>
     <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-0 ml-1 text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-full" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
       <svg class="w-8 h-8" aria-hidden="true" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>

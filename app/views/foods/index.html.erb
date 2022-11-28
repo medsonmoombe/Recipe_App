@@ -2,7 +2,7 @@
   <div class="container w-full flex justify-between items-center mt-8 mb-4 p-0">
     <h2 class="text-grayDark">List of foods</h2>
   </div>
-  <table class="table table-striped table-hover table-bordered ">
+  <table class="table table-hover">
     <thead class="table-dark text-xs md:text-md lg:text-lg">
       <tr class="font-thin text-center">
         <th scope="col">Food</th>
@@ -13,7 +13,7 @@
     </thead>
     <tbody>
       <% @foods.each do |food| %>
-        <tr class="text-xs md:text-md lg:text-lg text-center">
+        <tr class="text-xs md:text-md lg:text-lg text-center even:bg-slate-200 odd:bg-slate-300">
           <th scope="row"><%= food.name %></th>
           <td><%= food.measurement_unit %></td>
           <td>$<%= food.price %></td>

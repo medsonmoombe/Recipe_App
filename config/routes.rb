@@ -18,12 +18,15 @@ Rails.application.routes.draw do
   post 'inventory_foods/:id/create', to: 'inventory_food#create'
   get 'inventory_food/:id/new', to: 'inventory_food#new'
 
-  resources :shopping_list, only: [:new, :index, :destroy]
-  
+  resources :shopping_list, only: [:new, :index, :destroy] do
+    post 'shopping_list/:recipe_id', to: 'shopping_lists#generate'
+    delete 'shopping_list/:recipe_id', to: 'shopping_lists#destroy'
+  end
+
   resources :foods, only: [:index, :show, :new, :create, :destroy]
 
   patch '/recipe/:id', to: 'recipe#toggle_public', as: :update_recipe
-  
+
 
 
 

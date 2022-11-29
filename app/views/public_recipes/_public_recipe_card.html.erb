@@ -1,20 +1,20 @@
 <div class="card w-full my-3 px-0">
-  <div class="card-body flex flex-col md:flex-row space-between">
-    <span class="mb-2">
+  <div class="card-body flex flex-col space-between">
+    <div class="mb-2">
       <h3>
         <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
       </h3>
       <span class="text-sm md:text-lg lg:text-xl"><%= recipe.user.name %></span>
-    </span>
-    <div class="flex flex-col border-b md:border-0 border-grayLight">
+    </div>
+    <div class="flex flex-col border-b md:border-y py-2 border-grayLight">
       <% if recipe.public %>
-        <span class="badge bg-success text-white p-2 px-4">Public</span>
+        <span class="badge bg-success text-white p-2 px-4 rounded-0">Public</span>
       <% else %>
         <span class="badge bg-secondary text-white p-2 px-4">Private</span>
       <% end %>
-      <span class="text-lg text-light mt-4 p-2 bg-dark">Total foods: <%= recipe.recipe_foods.length %> </span>
+      <span class="text-lg text-light mt-4 p-2 bg-dark md:bg-transparent">Total foods: <%= recipe.recipe_foods.length %> </span>
       <% sum = 0 %>
-      <span class="text-lg text-light mb-2 p-2 bg-dark">Total price : $ <% recipe.recipe_foods.each do |food| %>
+      <span class="text-lg text-light p-2 bg-dark md:bg-transparent">Total price : $ <% recipe.recipe_foods.each do |food| %>
       <% sum += food.food.price %>
       <% end %>
       <%= sum %>
